@@ -2,6 +2,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:nuwa/constants/strings.dart';
+import 'package:nuwa/widgets/draw_widget.dart';
+import 'package:nuwa/widgets/title_button_widget.dart';
 import '../constants/assets.dart';
 import '../constants/colors.dart';
 import '../constants/styles.dart';
@@ -92,30 +94,20 @@ class _DataCollectionPageState extends State<DataCollectionPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: tBackground,
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            const AppbarWidget(),
-            headerWidgetCollection(context),
-            titleAndButton(
-                context, textExperiment, btnRefresh, Icons.refresh, () => selectRandomWord()),
-            autoTextGenerator(context),
-            titleAndButton(context, pleaseWriteBelow, btnExport, Icons.download_sharp, () {}),
-            Container(
-              width: double.infinity,
-              height: 300,
-              margin: const EdgeInsets.symmetric(horizontal: 12),
-              padding: const EdgeInsets.all(8),
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(12),
-                  border: Border.all(color: tGreen, width: 1)),
-            ),
-            const SizedBox(
-              height: 50,
-            )
-          ],
-        ),
+      body: ListView(
+        shrinkWrap: true,
+        children: [
+          const AppbarWidget(),
+          headerWidgetCollection(context),
+          titleButtonWidget(
+              context, textExperiment, btnRefresh, Icons.refresh, () => selectRandomWord()),
+          autoTextGenerator(context),
+          Container(
+            height: 500,
+            margin: const EdgeInsets.symmetric(horizontal: 12),
+            child: const DrawingBox(),
+          ),
+        ],
       ),
     );
   }
@@ -130,35 +122,6 @@ class _DataCollectionPageState extends State<DataCollectionPage> {
       child: Text(
         word ?? "No word available",
         style: TextStyles.custom(context: context, fontSize: 26),
-      ),
-    );
-  }
-
-  titleAndButton(context, title, buttonText, icon, VoidCallback voidCallBack) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 18),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            title,
-            style: TextStyles.subHeadline(context),
-          ),
-          CustomButton(
-            text: buttonText,
-            backgroundColor: Colors.white,
-            textColor: tTextColor,
-            horizontalPadding: 12,
-            verticalPadding: 0,
-            fontSize: 12,
-            icon: Icon(
-              icon,
-              color: Colors.grey.shade400,
-              size: 20,
-            ),
-            onPressed: voidCallBack,
-          )
-        ],
       ),
     );
   }
