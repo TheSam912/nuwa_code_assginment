@@ -118,7 +118,7 @@ class _DataCollectionPageState extends State<DataCollectionPage> {
       padding: const EdgeInsets.symmetric(horizontal: 12),
       decoration: BoxDecoration(borderRadius: BorderRadius.circular(12), color: Colors.white),
       child: Text(
-        word ?? "No word available",
+        word ?? noWord,
         style: TextStyles.custom(context: context, fontSize: 26),
       ),
     );

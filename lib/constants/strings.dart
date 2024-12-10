@@ -16,6 +16,7 @@ const String notConnectedPencilDescription =
 const String loadingConnectionDescription = "Please wait for your stylus to be connected.";
 const String connectedPencilDescription =
     "Your stylus is connected. You can start data collection.";
+const String noWord = "No word available";
 const List<String> randomWords = [
   "Lorem",
   "Nuwa",
