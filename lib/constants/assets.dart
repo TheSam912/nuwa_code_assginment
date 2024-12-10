@@ -2,6 +2,7 @@ const logo = "assets/images/logo.png";
 const logoBottomPage = "assets/images/nuwa_text.png";
 const connectedIcon = "assets/icons/connected.png";
 const pencilIcon = "assets/icons/pencil.png";
+const pencilConnectedIcon = "assets/icons/pencil_connected.png";
 const List<String> dashboardImages = [
   "assets/images/admin_1.png",
   "assets/images/admin_2.png",
