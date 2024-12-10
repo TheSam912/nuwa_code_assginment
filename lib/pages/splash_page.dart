@@ -26,12 +26,27 @@ class SplashPage extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: tBackground,
-      body: Center(
-        child: Image.asset(
-          logo,
-          width: screenWidth / 3,
-          fit: BoxFit.cover,
-        ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          const Spacer(),
+          Center(
+            child: Image.asset(
+              logo,
+              width: screenWidth / 3,
+              fit: BoxFit.cover,
+            ).animate(delay: 300.ms).flipH(duration: 400.ms),
+          ),
+          const Spacer(),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 14),
+            child: Image.asset(
+              logoBottomPage,
+              width: screenWidth / 3,
+              fit: BoxFit.cover,
+            ).animate(delay: 300.ms).fade(duration: 400.ms),
+          )
+        ],
       ),
     );
   }

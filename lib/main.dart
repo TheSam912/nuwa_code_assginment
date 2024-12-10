@@ -21,11 +21,12 @@ class MyApp extends StatelessWidget {
         return switch (settings.name) {
           'AdminDashboard' => FadePageRoute(page: const AdminDashboardPage()),
           'DataCollection' => FadePageRoute(
-              page:  DataCollectionPage(),
+              page: DataCollectionPage(),
             ),
           _ => FadePageRoute(page: const AdminDashboardPage())
         };
       },
+      debugShowCheckedModeBanner: false,
     );
   }
 }
