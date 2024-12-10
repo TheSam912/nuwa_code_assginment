@@ -1,12 +1,15 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:nuwa/constants/strings.dart';
-import 'package:nuwa/widgets/loading_widget.dart';
 import '../constants/assets.dart';
 import '../constants/colors.dart';
 import '../constants/styles.dart';
 import '../widgets/appbar_widget.dart';
 import '../widgets/button_widget.dart';
+import '../widgets/dialogs/connect_dialog.dart';
+import '../widgets/dialogs/loading_dialog.dart';
+import '../widgets/dialogs/success_dialog.dart';
 
 class DataCollectionPage extends StatefulWidget {
   @override
@@ -26,41 +29,69 @@ class _DataCollectionPageState extends State<DataCollectionPage> {
   }
 
   @override
+  void initState() {
+    super.initState();
+    Future.delayed(
+      500.ms,
+      () => checkPencilConnection(),
+    );
+  }
+
+  void checkPencilConnection() {
+    if (!isPencilConnected) {
+      showConnectDialog();
+    }
+  }
+
+  void showConnectDialog() {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (_) => Dialog(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        child: ConnectDialog(
+          onConnectPressed: startFakeConnection,
+        ),
+      ),
+    );
+  }
+
+  void startFakeConnection() {
+    Navigator.pop(context);
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (_) => Dialog(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+        child: const LoadingDialog(),
+      ),
+    );
+
+    Future.delayed(const Duration(seconds: 5), () {
+      Navigator.pop(context);
+      setState(() {
+        isPencilConnected = true;
+      });
+      showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (_) => Dialog(
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+          child: SuccessDialog(
+            onConnectPressed: () {
+              Navigator.pop(context);
+              selectRandomWord();
+            },
+          ),
+        ),
+      );
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: tBackground,
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          showDialog(
-            context: context,
-            builder: (context) {
-              return AlertDialog(
-                  backgroundColor: Colors.white,
-                  shape: const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(12.0))),
-                  content: Builder(
-                    builder: (context) {
-                      var height = MediaQuery.of(context).size.height;
-                      var width = MediaQuery.of(context).size.width;
-                      return Container(
-                        height: height / 3,
-                        width: width / 2,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(12), color: Colors.white),
-                        child: Column(
-                          children: [
-                            LoadingWidget(
-                              size: 80,
-                            )
-                          ],
-                        ),
-                      );
-                    },
-                  ));
-            },
-          );
-        },
-      ),
       body: SingleChildScrollView(
         child: Column(
           children: [

@@ -5,10 +5,10 @@ import '../../constants/assets.dart';
 import '../../constants/strings.dart';
 import '../../constants/styles.dart';
 
-class ConnectPencilDialog extends StatelessWidget {
+class ConnectDialog extends StatelessWidget {
   final VoidCallback onConnectPressed;
 
-  const ConnectPencilDialog({Key? key, required this.onConnectPressed}) : super(key: key);
+  const ConnectDialog({Key? key, required this.onConnectPressed}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
