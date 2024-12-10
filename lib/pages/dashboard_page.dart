@@ -12,17 +12,24 @@ class AdminDashboardPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          AppbarWidget(),
-          DashboardWidget(
-              imageList: dashboardImages,
-              dialogText: adminDashboardPageTitle,
-              buttonText: btnDataCollection),
-          FooterWidget()
-        ],
+    return Scaffold(
+      body: SingleChildScrollView(
+        child: ConstrainedBox(
+          constraints: BoxConstraints(
+            maxHeight: MediaQuery.of(context).size.height,
+          ),
+          child: const Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              AppbarWidget(),
+              DashboardWidget(
+                  imageList: dashboardImages,
+                  dialogText: adminDashboardPageTitle,
+                  buttonText: btnDataCollection),
+              FooterWidget()
+            ],
+          ),
+        ),
       ),
     );
   }
