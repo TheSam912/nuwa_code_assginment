@@ -104,7 +104,7 @@ class _DataCollectionPageState extends State<DataCollectionPage> {
           autoTextGenerator(context),
           const SizedBox(
             height: 500,
-            child: DrawingBox(),
+            child: SketchBox(),
           ),
         ],
       ),
