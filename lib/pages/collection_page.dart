@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:nuwa/constants/strings.dart';
 import 'package:nuwa/widgets/draw_widget.dart';
+import 'package:nuwa/widgets/status_widget.dart';
 import 'package:nuwa/widgets/title_button_widget.dart';
 import '../constants/assets.dart';
 import '../constants/colors.dart';
@@ -94,6 +95,7 @@ class _DataCollectionPageState extends State<DataCollectionPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: tBackground,
+      appBar: statusWidget(),
       body: ListView(
         shrinkWrap: true,
         children: [

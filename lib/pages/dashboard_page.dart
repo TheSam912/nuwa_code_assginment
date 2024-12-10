@@ -1,9 +1,8 @@
 import 'package:nuwa/constants/strings.dart';
-
+import 'package:nuwa/widgets/status_widget.dart';
 import '../widgets/dashboard_widget.dart';
 import '../widgets/footer_widget.dart';
 import 'package:flutter/material.dart';
-
 import '../constants/assets.dart';
 import '../widgets/appbar_widget.dart';
 
@@ -13,6 +12,7 @@ class AdminDashboardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: statusWidget(),
       body: SingleChildScrollView(
         child: ConstrainedBox(
           constraints: BoxConstraints(
