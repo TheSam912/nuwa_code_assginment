@@ -39,7 +39,7 @@ class LoadingDialog extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(left: 20, right: 20, top: 20),
             child: CustomButton(
-              text: "Start",
+              text: start,
               onPressed: () {},
               backgroundColor: tWhiteGreen,
               fontSize: 14,

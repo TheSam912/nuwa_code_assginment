@@ -46,7 +46,7 @@ class _LoadingWidgetState extends State<LoadingWidget> {
     return Container(
       width: widget.size,
       height: widget.size,
-      padding: const EdgeInsets.all(14),
+      padding: const EdgeInsets.all(25),
       decoration: const BoxDecoration(shape: BoxShape.circle, color: tPurple),
       alignment: Alignment.center,
       child: Image.asset(
