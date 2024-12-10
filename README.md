@@ -1,3 +1,14 @@
+### Screenshots
+
+Here are some screenshots of the app in action:
+
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
+  <img src="https://github.com/TheSam912/nuwa_code_assginment/blob/main/assets/screenshots/splash.png" alt="Splash Screen" width="200">
+  <img src="https://github.com/TheSam912/nuwa_code_assginment/blob/main/assets/screenshots/dashboard.png" alt="Admin Dashboard" width="200">
+  <img src="https://github.com/TheSam912/nuwa_code_assginment/blob/main/assets/screenshots/dialog.png" alt="Pencil Checker Dialog" width="200">
+  <img src="https://github.com/TheSam912/nuwa_code_assginment/blob/main/assets/screenshots/collection.png" alt="Data Collection Page" width="200">
+</div>
+
 ### Project Overview
 
 This is a code challenge developed for **NuwaPen** company. The project consists of three main pages: **Splash Page**, **Admin Dashboard Page**, and **Data Collection Page**. The application is built entirely with the Flutter framework and is fully responsive, based on a Figma design provided by the company. It has been tested on various devices, including iPhones, Android phones, tablets, and Chrome for web, ensuring compatibility across all screen sizes.
