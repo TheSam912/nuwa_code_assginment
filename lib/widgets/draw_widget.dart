@@ -86,44 +86,45 @@ class _DrawingBoxState extends State<DrawingBox> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        titleButtonWidget(context, pleaseWriteBelow, btnExport, Icons.download_sharp, () {}),
+        titleButtonWidget(context, pleaseWriteBelow, btnExport, Icons.download_sharp, exportToPDF),
         Container(
           width: double.infinity,
           height: 300,
+          margin: const EdgeInsets.symmetric(horizontal: 12),
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(12),
             border: Border.all(color: tGreen, width: 1),
           ),
-          child: GestureDetector(
-            onPanUpdate: (details) {
-              final renderBox = context.findRenderObject() as RenderBox;
-              final localPosition = renderBox.globalToLocal(details.globalPosition);
+          child: LayoutBuilder(
+            // Use LayoutBuilder to constrain drawing area
+            builder: (context, constraints) {
+              return GestureDetector(
+                onPanUpdate: (details) {
+                  final localPosition = details.localPosition;
 
-              // Adjust for top offset if needed
-              final adjustedPosition = Offset(
-                localPosition.dx,
-                localPosition.dy - renderBox.localToGlobal(Offset.zero).dy,
+                  // Ensure the position stays within the container bounds
+                  if (localPosition.dy >= 0 &&
+                      localPosition.dy <= constraints.maxHeight &&
+                      localPosition.dx >= 0 &&
+                      localPosition.dx <= constraints.maxWidth) {
+                    setState(() {
+                      points.add(localPosition);
+                      final time = DateTime.now().millisecondsSinceEpoch;
+                      coordinatesLog.add(
+                        'x: ${localPosition.dx}, y: ${localPosition.dy}, time: $time',
+                      );
+                    });
+                  }
+                },
+                onPanEnd: (_) => setState(() => points.add(Offset.zero)),
+                onLongPress: () => clearCanvas(),
+                child: CustomPaint(
+                  painter: SketchPainter(points),
+                  size: Size(constraints.maxWidth, constraints.maxHeight),
+                ),
               );
-
-              if (adjustedPosition.dy >= 0 &&
-                  adjustedPosition.dy <= 300 &&
-                  adjustedPosition.dx >= 0 &&
-                  adjustedPosition.dx <= renderBox.size.width) {
-                setState(() {
-                  points.add(adjustedPosition);
-                  final time = DateTime.now().millisecondsSinceEpoch;
-                  coordinatesLog.add(
-                    'x: ${adjustedPosition.dx}, y: ${adjustedPosition.dy}, time: $time',
-                  );
-                });
-              }
             },
-            onPanEnd: (_) => setState(() => points.add(Offset.zero)),
-            child: CustomPaint(
-              painter: SketchPainter(points),
-              size: const Size(double.infinity, 300),
-            ),
           ),
         ),
       ],

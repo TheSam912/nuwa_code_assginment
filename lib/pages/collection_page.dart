@@ -102,10 +102,9 @@ class _DataCollectionPageState extends State<DataCollectionPage> {
           titleButtonWidget(
               context, textExperiment, btnRefresh, Icons.refresh, () => selectRandomWord()),
           autoTextGenerator(context),
-          Container(
+          const SizedBox(
             height: 500,
-            margin: const EdgeInsets.symmetric(horizontal: 12),
-            child: const DrawingBox(),
+            child: DrawingBox(),
           ),
         ],
       ),
