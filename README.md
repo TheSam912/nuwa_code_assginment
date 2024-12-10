@@ -3,10 +3,10 @@
 Here are some screenshots of the app in action:
 
 <div style="display: flex; flex-wrap: wrap; gap: 10px;">
-  <img src="https://github.com/TheSam912/nuwa_code_assginment/blob/main/assets/screenshots/splash.png" alt="Splash Screen" width="300">
-  <img src="https://github.com/TheSam912/nuwa_code_assginment/blob/main/assets/screenshots/dashboard.png" alt="Admin Dashboard" width="300">
-  <img src="https://github.com/TheSam912/nuwa_code_assginment/blob/main/assets/screenshots/dialog.png" alt="Pencil Checker Dialog" width="300">
-  <img src="https://github.com/TheSam912/nuwa_code_assginment/blob/main/assets/screenshots/collection.png" alt="Data Collection Page" width="300">
+  <img src="https://github.com/TheSam912/nuwa_code_assginment/blob/main/assets/screenshots/splash.png" alt="Splash Screen" width="200">
+  <img src="https://github.com/TheSam912/nuwa_code_assginment/blob/main/assets/screenshots/dashboard.png" alt="Admin Dashboard" width="200">
+  <img src="https://github.com/TheSam912/nuwa_code_assginment/blob/main/assets/screenshots/dialog.png" alt="Pencil Checker Dialog" width="200">
+  <img src="https://github.com/TheSam912/nuwa_code_assginment/blob/main/assets/screenshots/collection.png" alt="Data Collection Page" width="200">
 </div>
 
 ### Project Overview
