@@ -14,9 +14,10 @@ class SuccessDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
+    final isLargeTablet = screenSize.width > 900;
     return Container(
-      height: screenSize.height / 2.5,
-      width: screenSize.width,
+      height: isLargeTablet ? screenSize.height / 2 : screenSize.height / 2.5,
+      width: isLargeTablet ? screenSize.width / 3 : screenSize.width,
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Column(
         mainAxisSize: MainAxisSize.min,

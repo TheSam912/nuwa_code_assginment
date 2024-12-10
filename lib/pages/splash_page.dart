@@ -24,6 +24,7 @@ class SplashPage extends StatelessWidget {
   Widget build(BuildContext context) {
     route(context);
     final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: tBackground,
       body: Column(
@@ -34,7 +35,8 @@ class SplashPage extends StatelessWidget {
             child: Image.asset(
               logo,
               width: screenWidth / 3,
-              fit: BoxFit.cover,
+              height: screenHeight / 3,
+              fit: BoxFit.contain,
             ).animate(delay: 300.ms).flipH(duration: 400.ms),
           ),
           const Spacer(),
@@ -42,8 +44,8 @@ class SplashPage extends StatelessWidget {
             padding: const EdgeInsets.only(bottom: 14),
             child: Image.asset(
               logoBottomPage,
-              width: screenWidth / 3,
-              fit: BoxFit.cover,
+              width: 120,
+              fit: BoxFit.contain,
             ).animate(delay: 300.ms).fade(duration: 400.ms),
           )
         ],

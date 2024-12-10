@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nuwa/helpers/sketch_size_helper.dart';
 import 'package:nuwa/widgets/title_button_widget.dart';
 import '../constants/colors.dart';
 import '../constants/strings.dart';
@@ -40,13 +41,14 @@ class _SketchBoxState extends State<SketchBox> {
 
   @override
   Widget build(BuildContext context) {
+    double sketchBoxHeight = sketchSize(context);
     return Column(
       children: [
         titleButtonWidget(context, pleaseWriteBelow, btnExport, Icons.download_sharp,
             () => exportToPDF(context, points)),
         Container(
           width: double.infinity,
-          height: 300,
+          height: sketchBoxHeight,
           margin: const EdgeInsets.symmetric(horizontal: 12),
           decoration: BoxDecoration(
             color: Colors.white,

@@ -2,7 +2,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:nuwa/constants/strings.dart';
-import 'package:nuwa/widgets/draw_widget.dart';
+import 'package:nuwa/widgets/sketch_widget.dart';
 import 'package:nuwa/widgets/status_widget.dart';
 import 'package:nuwa/widgets/title_button_widget.dart';
 import '../constants/assets.dart';
@@ -103,10 +103,8 @@ class _DataCollectionPageState extends State<DataCollectionPage> {
           titleButtonWidget(
               context, textExperiment, btnRefresh, Icons.refresh, () => selectRandomWord()),
           autoTextGenerator(context),
-          const SizedBox(
-            height: 500,
-            child: SketchBox(),
-          ),
+          const SketchBox(),
+          const SizedBox(height: 50,)
         ],
       ),
     );
