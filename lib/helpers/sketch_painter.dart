@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class SketchPainter extends CustomPainter {
+class Painter extends CustomPainter {
   final List<Offset> points;
 
-  SketchPainter(this.points);
+  Painter(this.points);
 
   @override
   void paint(Canvas canvas, Size size) {
