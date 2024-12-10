@@ -17,3 +17,18 @@ Future<void> exportCoordinates(context, coordinatesLog) async {
     );
   }
 }
+
+Future<void> coordinateLog(coordinatesLog) async {
+  try {
+    for (var log in coordinatesLog) {
+      print(log);
+    }
+    final directory = await getApplicationDocumentsDirectory();
+    final file = File('${directory.path}/coordinates_log.txt');
+    await file.writeAsString(coordinatesLog.join('\n'));
+
+    print('Coordinates saved to: ${file.path}');
+  } catch (e) {
+    print('Error saving coordinates: $e');
+  }
+}

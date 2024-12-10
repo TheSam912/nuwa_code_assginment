@@ -16,16 +16,6 @@ class _SketchBoxState extends State<SketchBox> {
   final List<Offset> points = [];
   final List<String> coordinatesLog = [];
 
-  void onPanUpdate(DragUpdateDetails details) {
-    final renderBox = context.findRenderObject() as RenderBox;
-    final offset = renderBox.globalToLocal(details.globalPosition);
-    final time = DateTime.now().millisecondsSinceEpoch;
-    setState(() {
-      points.add(offset);
-      coordinatesLog.add('x: ${offset.dx}, y: ${offset.dy}, time: $time');
-    });
-  }
-
   void clearCanvas() {
     setState(() {
       points.clear();
@@ -60,9 +50,18 @@ class _SketchBoxState extends State<SketchBox> {
                     setState(() {
                       points.add(localPosition);
                       final time = DateTime.now().millisecondsSinceEpoch;
-                      coordinatesLog.add(
-                        'x: ${localPosition.dx}, y: ${localPosition.dy}, time: $time',
-                      );
+                      final logEntry =
+                          'x: ${localPosition.dx}, y: ${localPosition.dy}, time: $time';
+                      coordinatesLog.add(logEntry);
+
+                      ///---------------------------------attention-------------------------------
+                      ///----------------------------------------------------------------
+
+                      // coordinateLog(coordinatesLog); UnComment this function to see log for X and Y dimensions
+
+                      ///----------------------------------------------------------------
+                      //////----------------------------------------------------------------
+                      ///---------------------------------attention-------------------------------
                     });
                   }
                 },
