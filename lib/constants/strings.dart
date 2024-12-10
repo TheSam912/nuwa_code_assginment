@@ -4,7 +4,8 @@ const String btnRefresh = "Refresh";
 const String btnDataCollection = "Data Collection";
 const String btnExport = "Export PDF";
 const String dataCollectionPageTitle = "Data Collection : Using stylus";
-const String btnConnection = "Connected";
+const String btnConnected = "Connected";
+const String btnDisconnect = "Disconnect";
 const String adminDashboardPageTitle = "Data Collection and Testing Tool";
 const List<String> randomWords = [
   "Lorem",
