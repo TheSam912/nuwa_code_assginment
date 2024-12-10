@@ -23,6 +23,21 @@ class _SketchBoxState extends State<SketchBox> {
     });
   }
 
+  void panUpdate(DragUpdateDetails details, BoxConstraints constraints) {
+    final localPosition = details.localPosition;
+    if (localPosition.dy >= 0 &&
+        localPosition.dy <= constraints.maxHeight &&
+        localPosition.dx >= 0 &&
+        localPosition.dx <= constraints.maxWidth) {
+      setState(() {
+        points.add(localPosition);
+        final time = DateTime.now().millisecondsSinceEpoch;
+        final logEntry = 'x: ${localPosition.dx}, y: ${localPosition.dy}, time: $time';
+        coordinatesLog.add(logEntry);
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -41,30 +56,7 @@ class _SketchBoxState extends State<SketchBox> {
           child: LayoutBuilder(
             builder: (context, constraints) {
               return GestureDetector(
-                onPanUpdate: (details) {
-                  final localPosition = details.localPosition;
-                  if (localPosition.dy >= 0 &&
-                      localPosition.dy <= constraints.maxHeight &&
-                      localPosition.dx >= 0 &&
-                      localPosition.dx <= constraints.maxWidth) {
-                    setState(() {
-                      points.add(localPosition);
-                      final time = DateTime.now().millisecondsSinceEpoch;
-                      final logEntry =
-                          'x: ${localPosition.dx}, y: ${localPosition.dy}, time: $time';
-                      coordinatesLog.add(logEntry);
-
-                      ///---------------------------------attention-------------------------------
-                      ///----------------------------------------------------------------
-
-                      // coordinateLog(coordinatesLog); UnComment this function to see log for X and Y dimensions
-
-                      ///----------------------------------------------------------------
-                      //////----------------------------------------------------------------
-                      ///---------------------------------attention-------------------------------
-                    });
-                  }
-                },
+                onPanUpdate: (details) => panUpdate(details, constraints),
                 onPanEnd: (_) => setState(() => points.add(Offset.zero)),
                 onLongPress: () => clearCanvas(),
                 child: CustomPaint(

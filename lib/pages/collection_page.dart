@@ -9,7 +9,6 @@ import '../constants/assets.dart';
 import '../constants/colors.dart';
 import '../constants/styles.dart';
 import '../widgets/appbar_widget.dart';
-import '../widgets/button_widget.dart';
 import '../widgets/dialogs/connect_dialog.dart';
 import '../widgets/dialogs/loading_dialog.dart';
 import '../widgets/dialogs/success_dialog.dart';
