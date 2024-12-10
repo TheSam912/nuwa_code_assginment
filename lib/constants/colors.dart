@@ -7,3 +7,5 @@ const Color tAppbar = Color(0xff2C2C2C);
 const Color tTextColor = Color(0xff2C2C2C);
 const Color tLightGreen = Color(0xffEEF8F1);
 const Color tShadowColor = Color(0xff101828);
+const Color tGrey = Color(0xff667085);
+const Color tWhiteGreen = Color(0xffC6DFB8);

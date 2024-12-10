@@ -4,9 +4,15 @@ const String btnRefresh = "Refresh";
 const String btnDataCollection = "Data Collection";
 const String btnExport = "Export PDF";
 const String dataCollectionPageTitle = "Data Collection : Using stylus";
+const String connect = "Connect";
+const String connecting = "Connecting ...";
 const String btnConnected = "Connected";
 const String btnDisconnect = "Disconnect";
 const String adminDashboardPageTitle = "Data Collection and Testing Tool";
+const String notConnectedPencilTitle = "Stylus is not connected";
+const String notConnectedPencilDescription =
+    "Please connect your stylus  to start data collection.";
+const String loadingConnectionDescription = "Please wait for your stylus to be connected.";
 const List<String> randomWords = [
   "Lorem",
   "Nuwa",
